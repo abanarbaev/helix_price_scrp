@@ -35,11 +35,11 @@ for i, k in dict0.items():
     soup = BeautifulSoup(src, 'lxml')
 
     links = soup.find_all('tr')
-    print(links)
-    print("\n")
+    #print(links)
+    #print("\n")
 
     for link in links:
         if "Цена услуги" in link.text:
-            tag = soup.find_all('td')[2]
-            print(link)
-            print(link.attrs["href"])
+            price_tag = soup.find_all('td')[2]
+            price = price_tag.text
+            print(price)

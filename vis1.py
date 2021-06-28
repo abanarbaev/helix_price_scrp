@@ -11,6 +11,6 @@ urls = []
 
 for tr_tag in soup.find_all("tr"):
     td_tag = tr_tag.find("td")
-    urls.append(td_tag.attrs["style"])
+    urls.append(td_tag.attrs["href"])
 
 print(urls)

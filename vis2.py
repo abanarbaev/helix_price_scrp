@@ -47,10 +47,10 @@ soup = BeautifulSoup(html_doc, "lxml")
 #print(tag['another-attribute'])
 
 
-#tag = soup.find_all('b')[3]
-#print(tag)
+tag = soup.find_all('b')[3]
+print(tag)
 
-#print(tag.attrs)
+print(tag.attrs)
 
 #print(tag)
 #tag['another-attribute'] = 2
