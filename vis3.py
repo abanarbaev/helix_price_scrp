@@ -24,22 +24,22 @@ with open("price01.csv", encoding='utf-8') as price_file:
         count += 1
     print(f'Всего в файле {count} строк.')
 
-
+#цикл для перебора страниц сайта с анализами по артикулу
 for i, k in dict0.items():
-    #print(i,k)
-    #print("https://helix.ru/catalog/item/{0}".format(i))
+    
+    #артикул подставляется в адрес сайта, чтобы выйти на нужную страницу исследования, и получаем запрос
     result = requests.get("https://helix.ru/catalog/item/{0}".format(i))
-
+    #печать артикула
+    print(i)
+    #присвоение переменной ответа от сервера со страницу
     src = result.content
-
+    #парсинг
     soup = BeautifulSoup(src, 'lxml')
-
+    #ищем данные по тегу
     links = soup.find_all('tr')
-    #print(links)
-    #print("\n")
-
+    #цикл поиска внутри тега <tr> слова "цена услуги", и если есть, то ищем тег <b>, внутри которой цифры с ценами
     for link in links:
         if "Цена услуги" in link.text:
-            price_tag = soup.find_all('td')[2]
+            price_tag = soup.find_all('b')[2]
             price = price_tag.text
             print(price)
