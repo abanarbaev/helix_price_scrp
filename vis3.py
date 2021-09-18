@@ -31,6 +31,8 @@ for i, k in dict0.items():
     result = requests.get("https://helix.ru/catalog/item/{0}".format(i))
     #печать артикула
     print(i)
+    #пРОБУЕМ ОТКРЫТЬ ФАЙЛ ЗАПИСАТЬ АРТИКУЛ И ЦЕНУ
+    my_file = open("some.txt", "w")
     #присвоение переменной ответа от сервера со страницу
     src = result.content
     #парсинг
